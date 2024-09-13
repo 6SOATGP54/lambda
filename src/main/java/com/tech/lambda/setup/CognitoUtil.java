@@ -36,9 +36,9 @@ public abstract class CognitoUtil {
             AdminCreateUserResponse response = cognitoClient.adminCreateUser(createUserRequest);
             return response.user().username();
 
-        } catch (CognitoIdentityProviderException e) {
+        } catch (Exception e) {
             Translate translate = TranslateOptions.getDefaultInstance().getService();
-            Translation translation = translate.translate(e.awsErrorDetails().errorMessage(), Translate.TranslateOption.targetLanguage("pt"));
+            Translation translation = translate.translate(e.getMessage(), Translate.TranslateOption.targetLanguage("pt"));
             return translation.getTranslatedText();
         }
     }
