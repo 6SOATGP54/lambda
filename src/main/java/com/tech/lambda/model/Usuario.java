@@ -1,4 +1,4 @@
 package com.tech.lambda.model;
 
-public record Usuario(String nome, String email, String telefone) {
+public record Usuario(String cpf, String email, String telefone) {
 }

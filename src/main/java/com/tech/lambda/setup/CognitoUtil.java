@@ -17,7 +17,7 @@ public abstract class CognitoUtil {
         try {
             AdminCreateUserRequest createUserRequest = AdminCreateUserRequest.builder()
                     .userPoolId(userPoolId)
-                    .username(usuario.nome())
+                    .username(usuario.cpf())
                     .userAttributes(
                             AttributeType.builder()
                                     .name("email")
