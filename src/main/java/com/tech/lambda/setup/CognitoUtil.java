@@ -36,6 +36,6 @@ public abstract class CognitoUtil {
         } catch (CognitoIdentityProviderException e) {
             System.err.println(e.awsErrorDetails().errorMessage());
         }
-        return "Não cadastradao DEPLOY COM GIT ACTION";
+        return "Não cadastrada";
     }
 }

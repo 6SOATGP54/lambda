@@ -2,33 +2,32 @@ package com.tech.lambda;
 
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
-import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyRequestEvent;
-
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.tech.lambda.model.Event;
 import com.tech.lambda.model.Usuario;
 import com.tech.lambda.setup.CognitoUtil;
 
 import java.util.logging.Logger;
 
 
-public class Cognito extends CognitoUtil implements RequestHandler<APIGatewayProxyRequestEvent , Response> {
+public class Cognito extends CognitoUtil implements RequestHandler<Object, Response> {
 
     private static final Logger logger = Logger.getLogger(Cognito.class.getName());
 
-
     @Override
-    public Response handleRequest(APIGatewayProxyRequestEvent event, Context context) {
+    public Response handleRequest(Object object, Context context) {
 
-        String path = event.getPath();
-        logger.info("Request detected: " + event);
         ObjectMapper objectMapper = new ObjectMapper();
 
         try {
-            if(("/food-api-autenticacao/register".equals(path))){
-                logger.info("Processando registro");
-                Usuario usuario = objectMapper.readValue(event.getBody(), Usuario.class);
-                String user = createUser(usuario);
-                return new Response(user, 200);
+            Usuario usuario =  objectMapper.convertValue(object, Usuario.class);
+
+            if(usuario.evento().equals(Event.LOGIN)){
+                return new Response("Usuario LOGIN", 200);
+            } else if (usuario.evento().equals(Event.REGISTRO)) {
+                return new Response(createUser(usuario), 200);
+            }else{
+                return new Response("PATH NÃO CADASTRADO", 400);
             }
         } catch (Exception e) {
             logger.severe("Erro ao processar a requisição: " + e.getMessage());
@@ -37,4 +36,5 @@ public class Cognito extends CognitoUtil implements RequestHandler<APIGatewayPro
         return new Response("Deu ruim", 400);
 
     }
+
 }
