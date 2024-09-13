@@ -63,6 +63,6 @@ public abstract class CognitoUtil {
 
         AdminInitiateAuthResponse  authResponse = cognitoClient.adminInitiateAuth(authRequest);
 
-        return authResponse.toString();
+        return authResponse.authenticationResult().refreshToken();
     }
 }
