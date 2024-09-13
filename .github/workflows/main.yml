@@ -18,7 +18,7 @@ jobs:
         run: mvn clean package
 
       - name: Zip the jar
-        run: zip -j deployment.zip target/*.jar
+        run: zip -j deployment.zip target/lambda2-1.0-SNAPSHOT.jar
 
       - name: Deploy to AWS Lambda
         uses: appleboy/lambda-action@v0.2.0
