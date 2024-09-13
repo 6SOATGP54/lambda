@@ -20,7 +20,7 @@ public class Cognito extends CognitoUtil implements RequestHandler<APIGatewayPro
     public Response handleRequest(APIGatewayProxyRequestEvent event, Context context) {
 
         String path = event.getPath();
-        logger.info("Request detected: " + path);
+        logger.info("Request detected: " + event);
         ObjectMapper objectMapper = new ObjectMapper();
 
         try {
