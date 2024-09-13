@@ -1,8 +1,5 @@
 package com.tech.lambda.setup;
 
-import com.google.cloud.translate.Translate;
-import com.google.cloud.translate.TranslateOptions;
-import com.google.cloud.translate.Translation;
 import com.tech.lambda.model.Usuario;
 import software.amazon.awssdk.services.cognitoidentityprovider.CognitoIdentityProviderClient;
 import software.amazon.awssdk.services.cognitoidentityprovider.model.AdminCreateUserRequest;
@@ -37,9 +34,7 @@ public abstract class CognitoUtil {
             return response.user().username();
 
         } catch (Exception e) {
-            Translate translate = TranslateOptions.getDefaultInstance().getService();
-            Translation translation = translate.translate(e.getMessage(), Translate.TranslateOption.targetLanguage("pt"));
-            return translation.getTranslatedText();
+            return e.getMessage();
         }
     }
 }
