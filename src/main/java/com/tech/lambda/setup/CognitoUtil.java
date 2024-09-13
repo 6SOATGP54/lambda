@@ -26,12 +26,20 @@ public abstract class CognitoUtil {
                                     .name("phone_number")
                                     .value(usuario.telefone())
                                     .build()
-                    )
-                    .temporaryPassword("TemporaryPass123!")
-                    .messageAction("SUPPRESS")
+                    ).messageAction("SUPPRESS")
                     .build();
 
             AdminCreateUserResponse response = cognitoClient.adminCreateUser(createUserRequest);
+
+            AdminSetUserPasswordRequest setPasswordRequest = AdminSetUserPasswordRequest.builder()
+                    .userPoolId(userPoolId)
+                    .username(usuario.cpf())
+                    .password("techFoodpass@2025!")
+                    .permanent(true)
+                    .build();
+
+            cognitoClient.adminSetUserPassword(setPasswordRequest);
+
             return response.user().username();
 
         } catch (Exception e) {
