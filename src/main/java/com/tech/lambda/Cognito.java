@@ -4,23 +4,29 @@ import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.tech.lambda.model.Event;
+import com.tech.lambda.model.Response;
 import com.tech.lambda.model.Usuario;
 import com.tech.lambda.setup.CognitoUtil;
 
+import java.util.Map;
 import java.util.logging.Logger;
 
 
-public class Cognito extends CognitoUtil implements RequestHandler<Object, Response> {
+public class Cognito extends CognitoUtil implements RequestHandler<Map<String, Object>, Response> {
 
     private static final Logger logger = Logger.getLogger(Cognito.class.getName());
 
     @Override
-    public Response handleRequest(Object object, Context context) {
+    public Response handleRequest(Map<String, Object> event, Context context) {
 
         ObjectMapper objectMapper = new ObjectMapper();
+        Map<String, String> headers = (Map<String, String>) event.get("headers");
+
+
+        logger.info("Headers: " + headers);
 
         try {
-            Usuario usuario =  objectMapper.convertValue(object, Usuario.class);
+            Usuario usuario =  objectMapper.convertValue(event.get("body"), Usuario.class);
 
             if(usuario.evento().equals(Event.LOGIN)){
                 return new Response("Usuario LOGIN", 200);
