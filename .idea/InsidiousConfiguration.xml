@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="com.insidious.plugin.factory.InsidiousConfigurationState">
+    <option name="executionSession" value="{&quot;lastUpdateAt&quot;:1725968878989,&quot;projectId&quot;:&quot;lambda2&quot;,&quot;createdAt&quot;:1725968878989,&quot;sessionId&quot;:&quot;selogger-output-20240909-154113434&quot;,&quot;hostname&quot;:&quot;localhost&quot;,&quot;path&quot;:&quot;C:\\Users\\Lucas\\.unlogged\\sessions\\selogger-output-20240909-154113434&quot;,&quot;logFilePath&quot;:&quot;C:\\Users\\Lucas\\.unlogged\\sessions\\selogger-output-20240909-154113434\\log.txt&quot;,&quot;sessionMode&quot;:&quot;LOCAL&quot;,&quot;timestampInUTC&quot;:1725907273439,&quot;databasePath&quot;:&quot;C:\\Users\\Lucas\\.unlogged\\sessions\\selogger-output-20240909-154113434\\execution.db&quot;,&quot;databaseConnectionString&quot;:&quot;jdbc:sqlite:C:\\Users\\Lucas\\.unlogged\\sessions\\selogger-output-20240909-154113434\\execution.db&quot;}" />
+  </component>
+</project>
