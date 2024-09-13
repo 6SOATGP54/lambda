@@ -31,7 +31,8 @@ public class Cognito extends CognitoUtil implements RequestHandler<Object, Respo
             logger.severe("Erro ao processar a requisição: " + e.getMessage());
         }
 
-        return new Response("Deu ruim", 400);
+        return new Response("Deu ruim DEPLOY COM GIT ACTION", 400);
+
 
     }
 
