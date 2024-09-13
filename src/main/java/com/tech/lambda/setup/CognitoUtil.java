@@ -10,7 +10,7 @@ import software.amazon.awssdk.services.cognitoidentityprovider.model.CognitoIden
 public abstract class CognitoUtil {
 
 
-    private static final String userPoolId = "us-east-1_nbQeLcPNI";
+    private static final String userPoolId = "us-east-1_XKNpKHM2m";
     private static final CognitoIdentityProviderClient cognitoClient = new CognitoClient().createCognitoClient();
 
     public static String createUser(Usuario usuario) {
@@ -23,7 +23,7 @@ public abstract class CognitoUtil {
                                     .name("email")
                                     .value(usuario.email())
                                     .name("phone_number")
-                                    .value(usuario.cpf())
+                                    .value(usuario.telefone())
                                     .build()
                     )
                     .temporaryPassword("TemporaryPass123!")

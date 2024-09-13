@@ -24,7 +24,7 @@ public class Cognito extends CognitoUtil implements RequestHandler<Object, Respo
             Usuario usuario =  objectMapper.convertValue(object, Usuario.class);
             logger.info(usuario.nome());
             logger.info(usuario.email());
-            logger.info(usuario.cpf());
+            logger.info(usuario.telefone());
             String user = createUser(usuario);
             return new Response(user, 200);
         } catch (Exception e) {
