@@ -45,7 +45,7 @@ public abstract class CognitoUtil {
             return response.user().username();
 
         } catch (Exception e) {
-            throw new CriarUsuarioExeception("Falha no Login " + usuario.cpf());
+            throw new CriarUsuarioExeception("Falha na criação " + usuario.cpf());
         }
     }
 
