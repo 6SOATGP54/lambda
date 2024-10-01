@@ -1,4 +1,4 @@
-# Contexto e Problema <img src="./docs/imgs/lambda-icon.png" width="25"></img>
+# Função Lambda <img src="./docs/imgs/lambda-icon.png" width="25"></img>
 Esta aplicação Lambda foi desenvolvida para suportar o gerenciamento de identidade de acesso (CIAM) do projeto [Tech Challenge](https://github.com/6SOATGP54/tech-challenge).
 
 # Desenho
